@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LittleLemonCoursera</string>
+    <string name="little_lemon">Little Lemon</string>
+    <string name="chicago">Chicago</string>
+    <string name="we_are_a_family">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</string>
+    <string name="order_take_away">Order Take Away</string>
+    <string name="weekly_special">Weekly Special</string>
+</resources>
