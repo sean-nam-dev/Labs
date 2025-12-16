@@ -1,6 +1,7 @@
 package dev.sn.littlelemoncoursera.navigation
 
 import androidx.navigation.NavOptionsBuilder
+import dev.sn.littlelemoncoursera.domain.BottomTab
 
 sealed interface NavigationAction {
 
@@ -10,4 +11,11 @@ sealed interface NavigationAction {
     ): NavigationAction
 
     data object NavigateUp: NavigationAction
+}
+
+fun BottomTab.toDestination(): Destination {
+    return when (this) {
+        BottomTab.Home -> Destination.HomeScreen
+        BottomTab.DinnerMenu -> Destination.DinnerMenuScreen
+    }
 }

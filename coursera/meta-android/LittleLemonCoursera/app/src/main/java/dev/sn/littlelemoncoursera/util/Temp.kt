@@ -2,6 +2,7 @@ package dev.sn.littlelemoncoursera.util
 
 import dev.sn.littlelemoncoursera.R
 import dev.sn.littlelemoncoursera.domain.Dish
+import dev.sn.littlelemoncoursera.domain.Product
 
 object Temp {
 
@@ -48,5 +49,22 @@ object Temp {
             7.99,
             R.drawable.lasagne
         )
+    )
+
+    fun getProducts() = listOf(
+        Product("Black tea", 3.00, "Drinks", R.drawable.black_tea),
+        Product("Green tea", 3.00, "Drinks", R.drawable.green_tea),
+        Product("Espresso", 5.00, "Drinks", R.drawable.espresso),
+        Product("Cappuccino", 8.00, "Drinks", R.drawable.cappuccino),
+        Product("Latte", 8.00, "Drinks", R.drawable.latte),
+        Product("Mocha", 10.00, "Drinks", R.drawable.mocha),
+        Product("Boeuf bourguignon", 15.00, "Food", R.drawable.boeuf_bourguignon),
+        Product("Bouillabaisse", 20.00, "Food", R.drawable.bouillabaisse),
+        Product("Lasagna", 15.00, "Food", R.drawable.lasagna),
+        Product("Onion soup", 12.00, "Food", R.drawable.onion_soup),
+        Product("Salmon en papillote", 25.00, "Food", R.drawable.salmon_en_papillote),
+        Product("Quiche Lorraine", 17.00, "Dessert", R.drawable.quiche_lorraine),
+        Product("Custard tart", 14.00, "Dessert", R.drawable.custard_tart),
+        Product("Croissant", 7.00, "Dessert", R.drawable.croissant),
     )
 }

@@ -5,4 +5,14 @@
     <string name="we_are_a_family">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</string>
     <string name="order_take_away">Order Take Away</string>
     <string name="weekly_special">Weekly Special</string>
+    <string name="little_lemon_menu">Little Lemon Menu</string>
+    <string name="sort">Sort</string>
+    <string name="a_z">A-Z</string>
+    <string name="price_ascending">Price ascending</string>
+    <string name="price_descending">Price descending</string>
+    <string name="filter">Filter</string>
+    <string name="all">All</string>
+    <string name="drinks">Drinks</string>
+    <string name="food">Food</string>
+    <string name="dessert">Dessert</string>
 </resources>

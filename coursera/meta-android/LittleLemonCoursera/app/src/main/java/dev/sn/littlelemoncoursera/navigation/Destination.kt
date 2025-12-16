@@ -3,13 +3,32 @@ package dev.sn.littlelemoncoursera.navigation
 import kotlinx.serialization.Serializable
 
 sealed interface Destination {
+    val baseRoute: String
+        get() = "dev.sn.littlelemoncoursera.navigation."
 
     @Serializable
-    object HomeGraph: Destination
+    data object HomeGraph : Destination
 
     @Serializable
-    object HomeScreen: Destination
+    data object HomeScreen : Destination {
+        override fun toString(): String {
+            return baseRoute + "HomeScreen"
+        }
+    }
 
     @Serializable
-    data class DetailScreen(val id: Int): Destination
+    data class DetailScreen(val id: Int) : Destination
+
+    @Serializable
+    data object DinnerMenuGraph : Destination
+
+    @Serializable
+    data object DinnerMenuScreen : Destination {
+        override fun toString(): String {
+            return baseRoute + "DinnerMenuScreen"
+        }
+    }
+
+    @Serializable
+    data class DinnerMenuDetailScreen(val index: Int) : Destination
 }

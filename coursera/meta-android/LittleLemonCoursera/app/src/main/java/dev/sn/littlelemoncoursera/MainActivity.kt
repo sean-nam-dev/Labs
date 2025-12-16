@@ -4,23 +4,21 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import dev.sn.littlelemoncoursera.navigation.DefaultNavigator
+import dev.sn.littlelemoncoursera.navigation.Destination
 import dev.sn.littlelemoncoursera.navigation.NavigationAction
-import dev.sn.littlelemoncoursera.navigation.Navigator
 import dev.sn.littlelemoncoursera.presentation.NavHostFrame
-import dev.sn.littlelemoncoursera.presentation.components.TopAppBar
+import dev.sn.littlelemoncoursera.presentation.components.app_bars.TopAppBarWithOptions
+import dev.sn.littlelemoncoursera.presentation.uiAction.MainUiAction
+import dev.sn.littlelemoncoursera.presentation.viewmodel.MainViewModel
 import dev.sn.littlelemoncoursera.ui.theme.LittleLemonCourseraTheme
-import dev.sn.littlelemoncoursera.ui.theme.White
 import dev.sn.littlelemoncoursera.util.ObserveAsEvents
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +27,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navHostController = rememberNavController()
-            val navigator = DefaultNavigator()
+            val navigator = remember { DefaultNavigator(Destination.DinnerMenuGraph) }
+
+            val mainViewModel: MainViewModel = viewModel()
 
             ObserveAsEvents(
                 navigator.navigationActions
@@ -50,13 +50,31 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     topBar = {
-                        TopAppBar()
+                        TopAppBarWithOptions(
+                            onSortAction = { sortType ->
+                                mainViewModel.onMainUiAction(
+                                    MainUiAction.OnSort(sortType)
+                                )
+                            },
+                            onFilterAction = { filterType ->
+                                mainViewModel.onMainUiAction(
+                                    MainUiAction.OnFilter(filterType)
+                                )
+                            }
+                        )
+//                        TopAppBar()
+                    },
+                    bottomBar = {
+//                        BottomAppBar(
+//                            navigator = navigator
+//                        )
                     },
                     content = { paddingValues ->
                         NavHostFrame(
                             modifier = Modifier.padding(paddingValues),
                             navHostController = navHostController,
-                            navigator = navigator
+                            navigator = navigator,
+                            mainViewModel = mainViewModel
                         )
                     }
                 )

@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
-import dev.sn.littlelemoncoursera.navigation.Navigator
 import dev.sn.littlelemoncoursera.data.DishRepositoryImpl
+import dev.sn.littlelemoncoursera.navigation.Navigator
 import dev.sn.littlelemoncoursera.presentation.viewmodel.HomeViewModel
 
 @Composable
