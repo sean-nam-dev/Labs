@@ -15,6 +15,8 @@ import dev.sn.littlelemoncoursera.navigation.DefaultNavigator
 import dev.sn.littlelemoncoursera.navigation.Destination
 import dev.sn.littlelemoncoursera.navigation.NavigationAction
 import dev.sn.littlelemoncoursera.presentation.NavHostFrame
+import dev.sn.littlelemoncoursera.presentation.components.app_bars.BottomAppBar
+import dev.sn.littlelemoncoursera.presentation.components.app_bars.TopAppBar
 import dev.sn.littlelemoncoursera.presentation.components.app_bars.TopAppBarWithOptions
 import dev.sn.littlelemoncoursera.presentation.uiAction.MainUiAction
 import dev.sn.littlelemoncoursera.presentation.viewmodel.MainViewModel
@@ -27,7 +29,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navHostController = rememberNavController()
-            val navigator = remember { DefaultNavigator(Destination.DinnerMenuGraph) }
+            val navigator = remember { DefaultNavigator(Destination.HomeGraph) }
 
             val mainViewModel: MainViewModel = viewModel()
 
@@ -50,19 +52,19 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     topBar = {
-                        TopAppBarWithOptions(
-                            onSortAction = { sortType ->
-                                mainViewModel.onMainUiAction(
-                                    MainUiAction.OnSort(sortType)
-                                )
-                            },
-                            onFilterAction = { filterType ->
-                                mainViewModel.onMainUiAction(
-                                    MainUiAction.OnFilter(filterType)
-                                )
-                            }
-                        )
-//                        TopAppBar()
+//                        TopAppBarWithOptions(
+//                            onSortAction = { sortType ->
+//                                mainViewModel.onMainUiAction(
+//                                    MainUiAction.OnSort(sortType)
+//                                )
+//                            },
+//                            onFilterAction = { filterType ->
+//                                mainViewModel.onMainUiAction(
+//                                    MainUiAction.OnFilter(filterType)
+//                                )
+//                            }
+//                        )
+                        TopAppBar()
                     },
                     bottomBar = {
 //                        BottomAppBar(

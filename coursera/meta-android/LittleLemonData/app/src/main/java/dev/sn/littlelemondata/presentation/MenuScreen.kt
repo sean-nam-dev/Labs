@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Clear
+import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -78,11 +79,23 @@ fun MenuScreen(
             },
             modifier = Modifier.fillMaxWidth()
                 .padding(horizontal = 50.dp),
+            label = {
+                Text(
+                    text = stringResource(R.string.search)
+                )
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Rounded.Search,
+                    contentDescription = null
+                )
+            },
             trailingIcon = {
                 IconButton(
                     onClick = {
                         viewModel.onMenuUiAction(MenuUiAction.OnClearAction)
-                    }
+                    },
+                    enabled = query.value.isNotEmpty()
                 ) {
                     Icon(
                         imageVector = Icons.Rounded.Clear,

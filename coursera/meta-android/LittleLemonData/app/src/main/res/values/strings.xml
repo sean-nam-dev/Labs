@@ -3,4 +3,5 @@
     <string name="tap_to_order">Tap to Order By</string>
     <string name="name">Name</string>
     <string name="price">Price</string>
+    <string name="search">Search</string>
 </resources>
