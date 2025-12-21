@@ -1,40 +1,52 @@
-## Little Lemon — Android Application (Course Project)
+# LittleLemonUI
 
-This project is an Android application developed as part of the **Meta Android Developer Professional Certificate (Coursera)**.
+An educational Android project created as part of the **Meta Android Developer Professional Certificate (Coursera)**.
 
-The goal of the project is to practice building a modern Android app using **Jetpack Compose**, **type-safe navigation**, and a clean, scalable architecture.
+## Project Overview
+This project is focused **exclusively on UI development** with **Jetpack Compose**.  
+The main goal is to practice building composable screens, managing UI state, and structuring a Compose-based application.
 
-### Key features
+Networking, persistence, and production concerns are intentionally out of scope.
 
-* Menu browsing screen
-* Item details screen
-* Navigation between screens using a sealed `Destination` model
-* Shared ViewModel scoped to navigation graph
-* UI state management with ViewModel
-* Sorting menu items via Top App Bar actions
-* Material Design 3 components
+## Screenshot
 
-### Technical stack
+<img src="https://github.com/user-attachments/assets/88c8af43-9755-4278-8b75-f6ceccaa47cf" width="360"/>
 
-* Kotlin
-* Jetpack Compose
-* Navigation Compose (type-safe routes)
-* ViewModel
-* StateFlow
-* Material 3
+## Learning Objectives
+- Building UI with Jetpack Compose
+- Screen composition and layout
+- Type-safe navigation between screens
+- Sharing state via ViewModel
+- Basic UI-driven sorting logic
+- Applying Material Design 3 components
+- Structuring UI code in a clean and readable way
 
-### Architecture
+## Features
+- Menu list screen
+- Item details screen
+- Navigation using a sealed `Destination` model
+- Shared ViewModel scoped to a navigation graph
+- UI state handling with `StateFlow`
+- Sorting menu items from the Top App Bar
+- Material 3 theming and components
 
-The app follows a clear separation of concerns:
+## Tech Stack
+- Kotlin
+- Jetpack Compose
+- Navigation Compose (type-safe routes)
+- ViewModel
+- StateFlow
+- Material Design 3
 
-* UI layer built with Jetpack Compose
-* Navigation handled through a centralized navigator
-* State stored and shared via ViewModel scoped to a navigation graph
+## Architecture Notes
+- UI layer built entirely with Jetpack Compose
+- Navigation handled through a centralized navigator
+- State stored and shared via ViewModel scoped to a navigation graph
+- Emphasis on UI composition and state flow, not data sources
 
-This repository contains **educational code** created for learning purposes.
-It is not intended to represent production-ready software.
+## Disclaimer
+This repository contains **learning-focused code only**.  
+It is not intended to represent production-ready architecture or best practices beyond UI experimentation.
 
-### Screenshots
-
-<img width="380" height="1724" alt="image" src="https://github.com/user-attachments/assets/2d47af31-1933-49be-a8c2-eb7c25195246" />
-
+## Purpose
+Practice and exploration of modern Android UI development with Jetpack Compose.
