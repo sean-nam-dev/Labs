@@ -4,8 +4,14 @@ class ReadPersonalInfoUsecase(
     private val sharedPrefsRepository: SharedPrefsRepository
 ) {
     fun invoke() = Triple(
-        sharedPrefsRepository.read(Util.FIRST_NAME),
-        sharedPrefsRepository.read(Util.LAST_NAME),
-        sharedPrefsRepository.read(Util.EMAIL)
+        sharedPrefsRepository.read(FIRST_NAME),
+        sharedPrefsRepository.read(LAST_NAME),
+        sharedPrefsRepository.read(EMAIL)
     )
+
+    companion object {
+        const val FIRST_NAME = "first_name"
+        const val LAST_NAME = "last_name"
+        const val EMAIL = "email_name"
+    }
 }
