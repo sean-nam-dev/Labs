@@ -8,7 +8,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.littlelemonfinal.navigation.Destination
-import com.example.littlelemonfinal.presentation.MainViewModel
+import com.example.littlelemonfinal.presentation.screen.RegisterScreen
+import com.example.littlelemonfinal.presentation.viewmodel.MainViewModel
+import com.example.littlelemonfinal.presentation.viewmodel.RegisterViewModel
 import com.example.littlelemonfinal.ui.theme.LittleLemonFinalTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,15 +19,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val mainViewModel: MainViewModel by viewModel()
             val navController = rememberNavController()
 
             LittleLemonFinalTheme {
                 NavHost(
-                    startDestination = Destination.Register,
+                    startDestination = when (mainViewModel.getStartDestination()) {
+                        Destination.Home.toString() -> Destination.Register
+                        else -> Destination.Register
+                    },
                     navController = navController
                 ) {
                     composable<Destination.Register> {
+                        val registerViewModel: RegisterViewModel by viewModel()
 
+                        RegisterScreen(
+                            viewModel = registerViewModel,
+                            navController = navController
+                        )
                     }
                     composable<Destination.Home> {
 

@@ -1,6 +1,5 @@
-package com.example.littlelemonfinal.presentation
+package com.example.littlelemonfinal.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.littlelemonfinal.domain.ReadStartDestinationUsecase
 
@@ -9,9 +8,4 @@ class MainViewModel(
 ) : ViewModel() {
 
     fun getStartDestination(): String = readStartDestinationUsecase.invoke()
-
-    fun test() {
-
-    }
 }
-
