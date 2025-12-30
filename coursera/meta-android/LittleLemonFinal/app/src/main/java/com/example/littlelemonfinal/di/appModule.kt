@@ -8,6 +8,7 @@ import com.example.littlelemonfinal.domain.ReadStartDestinationUsecase
 import com.example.littlelemonfinal.domain.SharedPrefsRepository
 import com.example.littlelemonfinal.domain.WritePersonalInfoUsecase
 import com.example.littlelemonfinal.domain.WriteStartDestinationUsecase
+import com.example.littlelemonfinal.presentation.viewmodel.HomeViewModel
 import com.example.littlelemonfinal.presentation.viewmodel.LogoutViewModel
 import com.example.littlelemonfinal.presentation.viewmodel.MainViewModel
 import com.example.littlelemonfinal.presentation.viewmodel.RegisterViewModel
@@ -73,5 +74,9 @@ val appModule = module {
             writePersonalInfoUsecase = get(),
             writeStartDestinationUsecase = get()
         )
+    }
+
+    viewModel<HomeViewModel> {
+        HomeViewModel()
     }
 }

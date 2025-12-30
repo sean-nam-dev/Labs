@@ -8,8 +8,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.littlelemonfinal.navigation.Destination
+import com.example.littlelemonfinal.presentation.screen.HomeScreen
 import com.example.littlelemonfinal.presentation.screen.LogoutScreen
 import com.example.littlelemonfinal.presentation.screen.RegisterScreen
+import com.example.littlelemonfinal.presentation.viewmodel.HomeViewModel
 import com.example.littlelemonfinal.presentation.viewmodel.LogoutViewModel
 import com.example.littlelemonfinal.presentation.viewmodel.MainViewModel
 import com.example.littlelemonfinal.presentation.viewmodel.RegisterViewModel
@@ -41,7 +43,12 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable<Destination.Home> {
+                        val homeViewModel: HomeViewModel by viewModel()
 
+                        HomeScreen(
+                            homeViewModel = homeViewModel,
+                            navController = navController
+                        )
                     }
                     composable<Destination.LogOut> {
                         val logoutViewModel: LogoutViewModel by viewModel()
